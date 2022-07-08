@@ -2,9 +2,9 @@ const outputDisplay = document.getElementsByTagName('output').display;
 const previousDisplay = document.getElementsByTagName('output').previous;
 const numberButtons = document.querySelectorAll('[data-type="number"]');
 const operatorButtons = document.querySelectorAll('[data-type="operator"]');
+
 let firstNumber = null;
 let secondNumber = null;
-let result = null;
 let operation = null;
 
 
@@ -15,7 +15,7 @@ document.getElementById('equals').addEventListener('click', equals);
 document.querySelector('[data-type="decimal"]').addEventListener('click', decimal);
 
 numberButtons.forEach(item => {
-    item.addEventListener('click', () => setDisplay(item.value));
+    item.addEventListener('click', () => appendDisplay(item.value));
 });
 
 operatorButtons.forEach(item => {
@@ -61,14 +61,14 @@ function equals() {
         outputDisplay.textContent = firstNumber;
     }
     secondNumber = null;
+    operation = null;
 }
 
 function setOperation(operator) {
     if (operation) {
         secondNumber = getDisplay();
-        result = operate(operation, firstNumber, secondNumber);
-        outputDisplay.textContent = result;
-        firstNumber = result;
+        firstNumber = operate(operation, firstNumber, secondNumber);
+        outputDisplay.textContent = firstNumber;
     } else {
         firstNumber = getDisplay();  
     }
@@ -80,7 +80,7 @@ function setOperation(operator) {
 
 function decimal(item) {
     if (!getDisplay().toString().includes('.')) {
-        setDisplay('.');
+        appendDisplay('.');
     }
 }
 
@@ -90,7 +90,7 @@ function getDisplay() {
     return Number(outputDisplay.textContent);
 }
 
-function setDisplay(value) {
+function appendDisplay(value) {
     outputDisplay.textContent += value;
 }
 

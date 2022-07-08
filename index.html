@@ -9,35 +9,39 @@
 </head>
 <body>
     <main>
-        <div class="display-container">
-            <output name="previous" for="equals"></output>
-            <output name="display" for="equals"></output>
+        <div class="top-spacer"></div>
+        <div class="frame">
+            <div class="display-container">
+                <output name="previous" for="equals"></output>
+                <output name="display" for="equals"></output>
+            </div>
+            <div class="grid">
+                <button id="clear" class="cell">Clear All</button>
+                <button id="delete" class="cell">Delete</button>
+                
+                <button class="cell" data-type="operator" value="/">/</button>
+
+                <button class="cell" data-type="number" value="7">7</button>
+                <button class="cell" data-type="number" value="8">8</button>
+                <button class="cell" data-type="number" value="9">9</button>
+                <button class="cell" data-type="operator" value="*">*</button>
+
+                <button class="cell" data-type="number" value="4">4</button>
+                <button class="cell" data-type="number" value="5">5</button>
+                <button class="cell" data-type="number" value="6">6</button>
+                <button class="cell" data-type="operator" value="-">-</button>
+
+                <button class="cell" data-type="number" value="1">1</button>
+                <button class="cell" data-type="number" value="2">2</button>
+                <button class="cell" data-type="number" value="3">3</button>
+                <button class="cell" data-type="operator" value="+">+</button>
+
+                <button class="cell" data-type="number" value="0">0</button>
+                <button class="cell" data-type="decimal" value=".">.</button> 
+                <button id="equals" class="cell" value="=">=</button>    
+            </div>
         </div>
-        <div class="grid">
-            <button id="clear" class="cell">Clear All</button>
-            <button id="delete" class="cell">Delete</button>
-            <button class="cell" value=""></button>
-            <button class="cell" data-type="operator" value="/">/</button>
-
-            <button class="cell" data-type="number" value="7">7</button>
-            <button class="cell" data-type="number" value="8">8</button>
-            <button class="cell" data-type="number" value="9">9</button>
-            <button class="cell" data-type="operator" value="*">*</button>
-
-            <button class="cell" data-type="number" value="4">4</button>
-            <button class="cell" data-type="number" value="5">5</button>
-            <button class="cell" data-type="number" value="6">6</button>
-            <button class="cell" data-type="operator" value="-">-</button>
-
-            <button class="cell" data-type="number" value="1">1</button>
-            <button class="cell" data-type="number" value="2">2</button>
-            <button class="cell" data-type="number" value="3">3</button>
-            <button class="cell" data-type="operator" value="+">+</button>
-
-            <button class="cell" data-type="number" value="0">0</button>
-            <button class="cell" data-type="decimal" value=".">.</button> 
-            <button id="equals" class="cell" value="=">=</button>    
-        </div>
+        <div class="bottom-spacer"></div>
     </main>
     <script src="main.js"></script>
 </body>
