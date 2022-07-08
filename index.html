@@ -10,30 +10,31 @@
 <body>
     <main>
         <div class="display-container">
-            <output name="display" for="equals">123</output>
+            <output name="previous" for="equals"></output>
+            <output name="display" for="equals"></output>
         </div>
         <div class="grid">
-            <button class="cell" value="C">C</button>
+            <button id="clear" class="cell" value="C">Clear All</button>
             <button class="cell" value=""></button>
             <button class="cell" value=""></button>
-            <button class="cell" value="divide">/</button>
+            <button class="cell" data-type="operator" value="/">/</button>
 
-            <button class="cell" value="7">7</button>
-            <button class="cell" value="8">8</button>
-            <button class="cell" value="9">9</button>
-            <button class="cell" value="multiply">*</button>
+            <button class="cell" data-type="number" value="7">7</button>
+            <button class="cell" data-type="number" value="8">8</button>
+            <button class="cell" data-type="number" value="9">9</button>
+            <button class="cell" data-type="operator" value="*">*</button>
 
-            <button class="cell" value="4">4</button>
-            <button class="cell" value="5">5</button>
-            <button class="cell" value="6">6</button>
-            <button class="cell" value="subtract">-</button>
+            <button class="cell" data-type="number" value="4">4</button>
+            <button class="cell" data-type="number" value="5">5</button>
+            <button class="cell" data-type="number" value="6">6</button>
+            <button class="cell" data-type="operator" value="-">-</button>
 
-            <button class="cell" value="1">1</button>
-            <button class="cell" value="2">2</button>
-            <button class="cell" value="3">3</button>
-            <button class="cell" value="add">+</button>
+            <button class="cell" data-type="number" value="1">1</button>
+            <button class="cell" data-type="number" value="2">2</button>
+            <button class="cell" data-type="number" value="3">3</button>
+            <button class="cell" data-type="operator" value="+">+</button>
 
-            <button class="cell" value="0">0</button>
+            <button class="cell" data-type="number" value="0">0</button>
             <button class="cell" value=".">.</button> 
             <button id="equals" class="cell" value="=">=</button>    
         </div>

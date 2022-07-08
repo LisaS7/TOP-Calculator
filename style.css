@@ -2,20 +2,29 @@
     --width: 20vw;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 main {
-    width: 20vw;
+    width: 20vw; 
 }
 
 output {
     flex: 0 0 100%;
     padding: 2vh 1vw;
-    border: 1px solid gray;
     text-align: right;
 }
 
 .display-container {
     display: flex;
-    width: calc(100% - 2vw);
+    flex-wrap: wrap;
+    border: 1px solid gray;
+}
+
+#previous-display {
+    font-size: small;
+    height: 1vh;
 }
 
 .grid {
