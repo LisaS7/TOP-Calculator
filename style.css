@@ -1,0 +1,30 @@
+:root {
+    --width: 20vw;
+}
+
+main {
+    width: 20vw;
+}
+
+output {
+    flex: 0 0 100%;
+    padding: 2vh 1vw;
+    border: 1px solid gray;
+    text-align: right;
+}
+
+.display-container {
+    display: flex;
+    width: calc(100% - 2vw);
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    flex: 0 0 25%;
+    height: 4vh;
+}
+  
