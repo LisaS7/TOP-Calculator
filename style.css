@@ -36,4 +36,7 @@ output {
     flex: 0 0 25%;
     height: 4vh;
 }
-  
+
+#clear, #delete {
+    font-size: 0.7rem;
+}

@@ -1,26 +1,25 @@
 const outputDisplay = document.getElementsByTagName('output').display;
 const previousDisplay = document.getElementsByTagName('output').previous;
+const numberButtons = document.querySelectorAll('[data-type="number"]');
+const operatorButtons = document.querySelectorAll('[data-type="operator"]');
+let firstNumber = null;
+let secondNumber = null;
 let result = null;
 let operation = null;
 
 
 // BUTTON EVENTS
 document.getElementById('clear').addEventListener('click', clearAll);
+document.getElementById('delete').addEventListener('click', deleteOne);
+document.getElementById('equals').addEventListener('click', equals);
+document.querySelector('[data-type="decimal"]').addEventListener('click', decimal);
 
-document.querySelectorAll('[data-type="number"]').forEach(item => {
-    item.addEventListener('click', () => {setDisplay(item.value)});
+numberButtons.forEach(item => {
+    item.addEventListener('click', () => setDisplay(item.value));
 });
 
-document.querySelectorAll('[data-type="operator"]').forEach(item => {
-    item.addEventListener('click', () => {
-        setOperation(item.value);
-        displayPrevious(result, operation);
-    });
-});
-
-document.getElementById('equals').addEventListener('click', () => {
-    equals();
-    displayPrevious(result);
+operatorButtons.forEach(item => {
+    item.addEventListener('click', () => setOperation(item.value));
 });
 
 
@@ -55,16 +54,34 @@ function operate(operator, a, b) {
 }
 
 function equals() {
-    result = operate(operation, result, getDisplay())
+    secondNumber = getDisplay();
+    if (firstNumber && secondNumber) {
+        previousDisplay.textContent = `${firstNumber} ${operation} ${secondNumber} =`;
+        firstNumber = operate(operation, firstNumber, secondNumber);
+        outputDisplay.textContent = firstNumber;
+    }
+    secondNumber = null;
 }
 
 function setOperation(operator) {
-    if (result) {
-        equals();
+    if (operation) {
+        secondNumber = getDisplay();
+        result = operate(operation, firstNumber, secondNumber);
+        outputDisplay.textContent = result;
+        firstNumber = result;
     } else {
-        result = getDisplay();
+        firstNumber = getDisplay();  
     }
+    
     operation = operator;
+    previousDisplay.textContent = `${firstNumber} ${operation}`;
+    outputDisplay.textContent = '';
+}
+
+function decimal(item) {
+    if (!getDisplay().toString().includes('.')) {
+        setDisplay('.');
+    }
 }
 
 
@@ -77,14 +94,15 @@ function setDisplay(value) {
     outputDisplay.textContent += value;
 }
 
-function displayPrevious(number, operation='') {
-    previousDisplay.textContent = `${number} ${operation}`;
-    outputDisplay.textContent = '';
-}
-
 function clearAll() {
     outputDisplay.textContent = '';
     previousDisplay.textContent = '';
+    firstNumber = null;
+    secondNumber = null;
     result = null;
     operation = null;
+}
+
+function deleteOne() {
+    outputDisplay.textContent = outputDisplay.textContent.slice(0, -1);
 }
